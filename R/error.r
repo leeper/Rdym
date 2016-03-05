@@ -4,18 +4,6 @@ matcherr <- function(msg, pattern)
 }
 
 
-scrub <- function(msg, pre, post)
-{
-  if (pre != "") fun <- sub(x=msg, pattern=paste0(".*", pre), replacement="")
-  if (post != "") fun <- sub(x=fun, pattern=paste0(post, ".*"), replacement="")
-  
-  fun <- gsub(x=fun, pattern="( +|\"|\'|\\n|\u00ab|\u00bb)", replacement="")
-  
-  fun
-}
-
-
-
 removechar <- function(char, str)
 {
   gsub(str, pattern=char, replacement="")
@@ -77,33 +65,26 @@ stop_dym <- function()
   call_stack <- sys.calls()
   
   ### Language support
-  lang <- get_language()
-  check_lang(lang)
+  check_lang()
   
   missing_fun <- get_missing_fun(lang)
   missing_obj <- get_missing_obj(lang)
   
   msg <- geterrmessage()
-  err_token <- get_error_token(lang=lang)
+  err_token <- gettext("Error")
   lastcall <- get_lastcall(call_stack, msg, err_token)
   
   
   ### "could not find function"
   if (matcherr(msg=msg, pattern=missing_fun))
   {
-    langrow <- get_langrow(lang=lang)
-    pre <- langtable$fun_pre[langrow]
-    post <- langtable$fun_post[langrow]
-    
-    fun <- scrub(msg=msg, pre=pre, post=post)
-    
-    did_you_mean(fun, lastcall, problem="function", msg, call_stack)
+    did_you_mean(gettext("could not find function %s"), lastcall, problem="function", msg, call_stack)
   }
   ### "is not an exported object from"
-  else if (matcherr(msg=msg, pattern="is not an exported object from")) #FIXME language
+  else if (matcherr(msg=msg, pattern=gettext("is not an exported object from"))) #FIXME language
   {
-    notExported <- sub(x=msg, pattern="Error: ", replacement="")
-    notExported <- sub(x=notExported, pattern=" is not an exported object from.*", replacement="")
+    notExported <- sub(x=msg, pattern=gettext("Error: "), replacement="")
+    notExported <- sub(x=notExported, pattern=gettext(" is not an exported object from.*"), replacement="")
     notExported <- gsub(x=notExported, pattern="'", replacement="")
     
     did_you_mean(notExported, lastcall, problem="not_exported", msg, call_stack)
@@ -111,18 +92,12 @@ stop_dym <- function()
   ### "object %s not found"
   else if (matcherr(msg=msg, pattern=missing_obj))
   {
-    langrow <- get_langrow(lang=lang)
-    pre <- langtable$obj_pre[langrow]
-    post <- langtable$obj_post[langrow]
-    
-    obj <- scrub(msg=msg, pre=pre, post=post)
-    
-    did_you_mean(obj, lastcall, problem="object", msg, call_stack)
+    did_you_mean(gettext("object %s not found"), lastcall, problem="object", msg, call_stack)
   }
   ### "there is no package called"
-  else if (matcherr(msg=msg, pattern="there is no package called"))  #FIXME language
+  else if (matcherr(msg=msg, pattern=gettext("there is no package called")))  #FIXME language
   {
-    pack <- sub(x=msg, pattern=".*there is no package called ", replacement="")
+    pack <- sub(x=msg, pattern=paste0(".*", gettext("there is no package called")," "), replacement="")
     pack <- sub(x=pack, pattern="\\n", replacement="")
     
     alphanum <- c(letters, LETTERS)
@@ -134,7 +109,7 @@ stop_dym <- function()
     did_you_mean(pack, lastcall, problem="package", msg, call_stack)
   }
   ### unused argument
-  else if (matcherr(msg=msg, pattern="unused argument(?s)"))
+  else if (matcherr(msg=msg, pattern=paste0(gettext("unused argument"), "(?s)")))
   {  
     # best to work on problematic tokens in dym.R, so put placeholder for name
     did_you_mean(name="placeholder", lastcall, problem="unused_arguments", msg, call_stack)

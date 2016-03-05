@@ -3,7 +3,7 @@
 ##################################################################
 
 find_unused_args <- function(msg) {  
-  temp <- sub(msg,pattern="Error.*unused argument(s?) ",replacement="")
+  temp <- sub(msg,pattern = paste0(gettext("Error"), ".*", gettext("unused argument"), "(s?) "),replacement="")
   temp <- sub(temp,pattern="\\(",replacement="")
   temp <- sub(temp,pattern="\\)",replacement="")
   temp <- sub(temp,pattern="\\n",replacement="")

@@ -156,25 +156,18 @@ did_you_mean <- function(name, lastcall, problem, msg, call_stack)
 {
   name <- sub(x=name, pattern="\\n", replacement="")
   
-  if (problem == "function")
-    out <- dym_function(name, lastcall, problem, msg, call_stack)
-  else if (problem=="package") 
-    out <- dym_package(name, lastcall, problem, msg, call_stack)
-  else if (problem == "not_exported")
-    out <- dym_export(name, lastcall, problem, msg, call_stack)
-  else if (problem == "object")
-    out <- dym_object(name, lastcall, problem, msg, call_stack)
-  else if (problem == "unused_arguments")
-    out <- dym_unused(name, lastcall, problem, msg, call_stack)
+  out <- switch(problem,
+                "function" = dym_function(name, lastcall, problem, msg, call_stack),
+                "package" = dym_package(name, lastcall, problem, msg, call_stack),
+                "not_exported" = dym_export(name, lastcall, problem, msg, call_stack),
+                "object" = dym_object(name, lastcall, problem, msg, call_stack),
+                "unused_arguments" = dym_unused(name, lastcall, problem, msg, call_stack)
+                )
   
   suggestion <- out$suggestion
   lastcall <- out$lastcall
   
-  #the following applies to errors other than unused arguments:
-  lang <- get_language()
-  dym_local <- dym_translate(lang=lang)
-  
-  cat(paste0("\n", dym_local, suggestion, "  ?\n"))
+  cat(paste0("\n", gettext("Did you mean"), ": ", suggestion, "  ?\n"))
   if (!is.null(lastcall))
       cat(lastcall, "\n")
   
