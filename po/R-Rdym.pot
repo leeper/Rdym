@@ -19,22 +19,16 @@ msgstr ""
 msgid "object %s not found"
 msgstr ""
 
-msgid "Error"
-msgstr ""
-
-msgid "is not an exported object from"
+msgid "is not an exported object from %s"
 msgstr ""
 
 msgid "Error:"
 msgstr ""
 
-msgid "is not an exported object from.*"
+msgid "there is no package called %s"
 msgstr ""
 
-msgid "there is no package called"
-msgstr ""
-
-msgid "unused argument"
+msgid "unused argument %s"
 msgstr ""
 
 msgid "Internal Rdym error: no suitable list of replacement words found.  Please report this https://github.com/wrathematics/Rdym/issues"

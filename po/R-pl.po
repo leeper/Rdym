@@ -11,10 +11,10 @@ msgstr ""
 "Language: pl\n"
 
 msgid "Did you mean"
-msgstr "Czy chodzi\u0142o Ci o"
+msgstr "Czy chodziło Ci o"
 
 msgid "Error"
-msgstr "B\u0141\u0104D"
+msgstr "BŁĄD"
 
 msgid "Internal Rdym error: no suitable list of replacement words found.  Please report this https://github.com/wrathematics/Rdym/issues"
 msgstr ""
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Language is not supported in Rdym at this time.  If you have localization support in R, please file an issue with Rdym at https://github.com/wrathematics/Rdym/issues"
 msgstr ""
 
-msgid "NOTE:  The Rdym package can only be used interactively."
+msgid "NOTE: The Rdym package can only be used interactively."
 msgstr ""
 
 msgid "unused argument"

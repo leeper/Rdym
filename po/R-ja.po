@@ -11,10 +11,10 @@ msgstr ""
 "Language: ja\n"
 
 msgid "Did you mean"
-msgstr "\u3042\u306a\u305f\u306f\u3092\u610f\u5473\u3057\u305f"
+msgstr "あなたはを意味した"
 
-msgid "Error"
-msgstr "\u30a8\u30e9\u30fc"
+msgid "Error:"
+msgstr "エラー"
 
 msgid "Internal Rdym error: no suitable list of replacement words found.  Please report this https://github.com/wrathematics/Rdym/issues"
 msgstr ""
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Language is not supported in Rdym at this time.  If you have localization support in R, please file an issue with Rdym at https://github.com/wrathematics/Rdym/issues"
 msgstr ""
 
-msgid "NOTE:  The Rdym package can only be used interactively."
+msgid "NOTE: The Rdym package can only be used interactively."
 msgstr ""
 
 msgid "unused argument"

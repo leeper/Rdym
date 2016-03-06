@@ -11,10 +11,10 @@ msgstr ""
 "Language: zh_CN\n"
 
 msgid "Did you mean"
-msgstr "\u4f60\u7684\u610f\u601d\u662f"
+msgstr "你的意思是"
 
-msgid "Error"
-msgstr "\u9519\u8bef"
+msgid "Error:"
+msgstr "错误"
 
 msgid "Internal Rdym error: no suitable list of replacement words found.  Please report this https://github.com/wrathematics/Rdym/issues"
 msgstr ""
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Language is not supported in Rdym at this time.  If you have localization support in R, please file an issue with Rdym at https://github.com/wrathematics/Rdym/issues"
 msgstr ""
 
-msgid "NOTE:  The Rdym package can only be used interactively."
+msgid "NOTE: The Rdym package can only be used interactively."
 msgstr ""
 
 msgid "unused argument"

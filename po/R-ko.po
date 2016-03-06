@@ -11,10 +11,10 @@ msgstr ""
 "Language: ko\n"
 
 msgid "Did you mean"
-msgstr "\ucc3e\uc73c \uc168\ub098\uc694"
+msgstr "찾으 셨나요"
 
-msgid "Error"
-msgstr "\uc5d0\ub7ec"
+msgid "Error:"
+msgstr "에러"
 
 msgid "Internal Rdym error: no suitable list of replacement words found.  Please report this https://github.com/wrathematics/Rdym/issues"
 msgstr ""
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Language is not supported in Rdym at this time.  If you have localization support in R, please file an issue with Rdym at https://github.com/wrathematics/Rdym/issues"
 msgstr ""
 
-msgid "NOTE:  The Rdym package can only be used interactively."
+msgid "NOTE: The Rdym package can only be used interactively."
 msgstr ""
 
 msgid "unused argument"

@@ -68,7 +68,7 @@ stop_dym <- function()
   missing_obj <- paste0("(?<=", sprintf(gettext("object %s not found"), ")(.*)(?="), ")")
   
   msg <- geterrmessage()
-  err_token <- gettext("Error")
+  err_token <- gettext("Error:")
   lastcall <- get_lastcall(call_stack, msg, err_token)
   
   
@@ -80,8 +80,8 @@ stop_dym <- function()
   ### "is not an exported object from"
   else if (matcherr(msg=msg, pattern=gettext("is not an exported object from"))) #FIXME language
   {
-    notExported <- sub(x=msg, pattern=gettext("Error: "), replacement="")
-    notExported <- sub(x=notExported, pattern=gettext(" is not an exported object from.*"), replacement="")
+    notExported <- sub(x=msg, pattern=gettext("Error:"), replacement="")
+    notExported <- sub(x=notExported, pattern=paste0(gettext(" is not an exported object from"),".*"), replacement="")
     notExported <- gsub(x=notExported, pattern="'", replacement="")
     
     did_you_mean(notExported, lastcall, problem="not_exported", msg, call_stack)
@@ -89,12 +89,12 @@ stop_dym <- function()
   ### "object %s not found"
   else if (matcherr(msg=msg, pattern=missing_obj))
   {
-    did_you_mean(gettext("object %s not found"), lastcall, problem="object", msg, call_stack)
+    did_you_mean(gettext("object %s not found", domain = "R-base"), lastcall, problem="object", msg, call_stack)
   }
   ### "there is no package called"
-  else if (matcherr(msg=msg, pattern=gettext("there is no package called")))  #FIXME language
+  else if (matcherr(msg=msg, pattern=gettext("there is no package called %s", domain = "R-base")))
   {
-    pack <- sub(x=msg, pattern=paste0(".*", gettext("there is no package called")," "), replacement="")
+    pack <- sub(x=msg, pattern=paste0(".*", gettext("there is no package called %s")," "), replacement="")
     pack <- sub(x=pack, pattern="\\n", replacement="")
     
     alphanum <- c(letters, LETTERS)

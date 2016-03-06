@@ -20,9 +20,6 @@ msgstr ""
 msgid "object %s not found"
 msgstr ""
 
-msgid "Error"
-msgstr ""
-
 msgid "is not an exported object from"
 msgstr ""
 

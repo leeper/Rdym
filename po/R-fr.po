@@ -19,15 +19,11 @@ msgstr ""
 msgid "object %s not found"
 msgstr ""
 
-msgid "Error"
-msgstr "Erreur"
+msgid "Error:"
+msgstr "Erreur:"
 
 msgid "is not an exported object from"
 msgstr ""
-
-#, fuzzy
-msgid "Error:"
-msgstr "Erreur"
 
 msgid "is not an exported object from.*"
 msgstr ""
