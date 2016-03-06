@@ -64,24 +64,26 @@ stop_dym <- function()
   ### Get the call stack (will always contain at least the call for stop_dym)
   call_stack <- sys.calls()
   
-  missing_fun <- paste0("(?<=", sprintf(gettext("could not find function %s"), ")(.*)(?="), ")")
-  missing_obj <- paste0("(?<=", sprintf(gettext("object %s not found"), ")(.*)(?="), ")")
+  missing_fun <- paste0("(?<=", gsub("\"%s\"", "", gettext("could not find function \"%s\"", domain = "base")), ")(.*)(?=", ")")
+  missing_obj <- paste0("(?<=", sprintf(gettext("object %s not found", domain = "R-base"), ")(.*)(?="), ")")
   
   msg <- geterrmessage()
-  err_token <- gettext("Error:")
+  err_token <- gettext("Error: ", domain = "base")
   lastcall <- get_lastcall(call_stack, msg, err_token)
   
+  ptmp <- gettext("'%s' is not an exported object from 'namespace:%s'")
+  ptmp <- gsub("'namespace:%s'", "", gsub("'%s'", "", ptmp))
   
   ### "could not find function"
   if (matcherr(msg=msg, pattern=missing_fun))
   {
-    did_you_mean(gettext("could not find function %s"), lastcall, problem="function", msg, call_stack)
+    did_you_mean(fun, lastcall, problem="function", msg, call_stack)
   }
   ### "is not an exported object from"
-  else if (matcherr(msg=msg, pattern=gettext("is not an exported object from"))) #FIXME language
+  else if (matcherr(msg=msg, pattern=ptmp))
   {
     notExported <- sub(x=msg, pattern=gettext("Error:"), replacement="")
-    notExported <- sub(x=notExported, pattern=paste0(gettext(" is not an exported object from"),".*"), replacement="")
+    notExported <- sub(x=notExported, pattern=paste0(gettext("is not an exported object from"),".*"), replacement="")
     notExported <- gsub(x=notExported, pattern="'", replacement="")
     
     did_you_mean(notExported, lastcall, problem="not_exported", msg, call_stack)
@@ -92,9 +94,9 @@ stop_dym <- function()
     did_you_mean(gettext("object %s not found", domain = "R-base"), lastcall, problem="object", msg, call_stack)
   }
   ### "there is no package called"
-  else if (matcherr(msg=msg, pattern=gettext("there is no package called %s", domain = "R-base")))
+  else if (matcherr(msg=msg, pattern=sprintf(gettext("there is no package called %s", domain = "R-base"), "")))
   {
-    pack <- sub(x=msg, pattern=paste0(".*", gettext("there is no package called %s")," "), replacement="")
+    pack <- sub(x=msg, pattern=paste0(".*", sprintf(gettext("there is no package called %s"),"")), replacement="")
     pack <- sub(x=pack, pattern="\\n", replacement="")
     
     alphanum <- c(letters, LETTERS)
@@ -106,7 +108,10 @@ stop_dym <- function()
     did_you_mean(pack, lastcall, problem="package", msg, call_stack)
   }
   ### unused argument
-  else if (matcherr(msg=msg, pattern=paste0(gettext("unused argument"), "(?s)")))
+  else if ( (matcherr(msg=msg, pattern=paste0(gsub("%s", "", ngettext(0, "unused argument %s", "unused arguments %s", domain = "base")), "(?s)"))) ||
+             (matcherr(msg=msg, pattern=paste0(gsub("%s", "", ngettext(1, "unused argument %s", "unused arguments %s", domain = "base")), "(?s)"))) ||
+             (matcherr(msg=msg, pattern=paste0(gsub("%s", "", ngettext(2, "unused argument %s", "unused arguments %s", domain = "base")), "(?s)"))) ||
+             (matcherr(msg=msg, pattern=paste0(gsub("%s", "", ngettext(3, "unused argument %s", "unused arguments %s", domain = "base")), "(?s)"))) )
   {  
     # best to work on problematic tokens in dym.R, so put placeholder for name
     did_you_mean(name="placeholder", lastcall, problem="unused_arguments", msg, call_stack)

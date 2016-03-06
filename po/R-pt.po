@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rdym 0.4.0\n"
 "Report-Msgid-Bugs-To: Drew Schmidt <wrathematics@gmail.com>\n"
-"POT-Creation-Date: 2016-03-06 13:35\n"
+"POT-Creation-Date: 2016-03-06 18:02\n"
 "PO-Revision-Date: 2016-03-05 21:51\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,25 +14,22 @@ msgstr ""
 msgid "Did you mean"
 msgstr "Queria dizer"
 
-msgid "could not find function %s"
+msgid "could not find function \"%s\""
 msgstr ""
 
 msgid "object %s not found"
 msgstr ""
 
-msgid "is not an exported object from"
-msgstr ""
-
 msgid "Error:"
 msgstr ""
 
-msgid "is not an exported object from.*"
+msgid "'%s' is not an exported object from 'namespace:%s'"
 msgstr ""
 
-msgid "there is no package called"
+msgid "is not an exported object from"
 msgstr ""
 
-msgid "unused argument"
+msgid "there is no package called %s"
 msgstr ""
 
 msgid ""
@@ -42,3 +39,8 @@ msgstr ""
 
 msgid "NOTE: The Rdym package can only be used interactively."
 msgstr ""
+
+msgid "unused argument %s"
+msgid_plural "unused arguments %s"
+msgstr[0] ""
+msgstr[1] ""

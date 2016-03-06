@@ -1,29 +1,47 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rdym 0.4.0\n"
-"POT-Creation-Date: 2016-03-05 21:47\n"
+"POT-Creation-Date: 2016-03-06 18:02\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 
 msgid "Did you mean"
 msgstr "찾으 셨나요"
 
-msgid "Error:"
-msgstr "에러"
-
-msgid "Internal Rdym error: no suitable list of replacement words found.  Please report this https://github.com/wrathematics/Rdym/issues"
+msgid "could not find function \"%s\""
 msgstr ""
 
-msgid "Language is not supported in Rdym at this time.  If you have localization support in R, please file an issue with Rdym at https://github.com/wrathematics/Rdym/issues"
+msgid "object %s not found"
+msgstr ""
+
+#, fuzzy
+msgid "Error:"
+msgstr "에러 "
+
+#, fuzzy
+msgid "'%s' is not an exported object from 'namespace:%s'"
+msgstr "로부터 내보내어진 객체가 아닙니다"
+
+msgid "is not an exported object from"
+msgstr "로부터 내보내어진 객체가 아닙니다"
+
+msgid "there is no package called %s"
+msgstr ""
+
+msgid ""
+"Internal Rdym error: no suitable list of replacement words found.  Please "
+"report this https://github.com/wrathematics/Rdym/issues"
 msgstr ""
 
 msgid "NOTE: The Rdym package can only be used interactively."
 msgstr ""
 
-msgid "unused argument"
-msgstr ""
+msgid "unused argument %s"
+msgid_plural "unused arguments %s"
+msgstr[0] ""
+msgstr[1] ""

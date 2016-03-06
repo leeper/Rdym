@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rdym 0.4.0\n"
-"POT-Creation-Date: 2016-03-06 13:35\n"
+"POT-Creation-Date: 2016-03-06 18:02\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,29 +13,23 @@ msgstr ""
 msgid "Did you mean"
 msgstr "Mente du"
 
-msgid "could not find function %s"
+msgid "could not find function \"%s\""
 msgstr ""
 
 msgid "object %s not found"
 msgstr ""
 
-msgid "Error"
-msgstr "Feil"
+#, fuzzy
+msgid "Error:"
+msgstr "Feil: "
+
+msgid "'%s' is not an exported object from 'namespace:%s'"
+msgstr ""
 
 msgid "is not an exported object from"
 msgstr ""
 
-#, fuzzy
-msgid "Error:"
-msgstr "Feil"
-
-msgid "is not an exported object from.*"
-msgstr ""
-
-msgid "there is no package called"
-msgstr ""
-
-msgid "unused argument"
+msgid "there is no package called %s"
 msgstr ""
 
 msgid ""
@@ -45,3 +39,8 @@ msgstr ""
 
 msgid "NOTE: The Rdym package can only be used interactively."
 msgstr ""
+
+msgid "unused argument %s"
+msgid_plural "unused arguments %s"
+msgstr[0] ""
+msgstr[1] ""
