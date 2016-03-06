@@ -11,7 +11,7 @@
 .onAttach <- function(...)
 {
   if (!interactive())
-    packageStartupMessage("NOTE:  The Rdym package can only be used interactively.")
+    packageStartupMessage("NOTE: The Rdym package can only be used interactively.")
   
   invisible()
 }

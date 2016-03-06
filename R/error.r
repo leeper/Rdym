@@ -64,11 +64,8 @@ stop_dym <- function()
   ### Get the call stack (will always contain at least the call for stop_dym)
   call_stack <- sys.calls()
   
-  ### Language support
-  check_lang()
-  
-  missing_fun <- get_missing_fun(lang)
-  missing_obj <- get_missing_obj(lang)
+  missing_fun <- paste0("(?<=", sprintf(gettext("could not find function %s"), ")(.*)(?="), ")")
+  missing_obj <- paste0("(?<=", sprintf(gettext("object %s not found"), ")(.*)(?="), ")")
   
   msg <- geterrmessage()
   err_token <- gettext("Error")

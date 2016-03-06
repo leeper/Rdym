@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rdym 0.4.0\n"
 "Report-Msgid-Bugs-To: Drew Schmidt <wrathematics@gmail.com>\n"
-"POT-Creation-Date: 2016-03-05 22:37\n"
+"POT-Creation-Date: 2016-03-06 13:33\n"
 "PO-Revision-Date: 2016-03-05 21:51\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,11 +14,14 @@ msgstr ""
 msgid "Did you mean"
 msgstr "Mente du"
 
-msgid "Error"
-msgstr "Fejl"
-
 msgid "could not find function %s"
 msgstr ""
+
+msgid "object %s not found"
+msgstr ""
+
+msgid "Error"
+msgstr "Fejl"
 
 msgid "is not an exported object from"
 msgstr ""
@@ -30,9 +33,6 @@ msgstr "Fejl"
 msgid "is not an exported object from.*"
 msgstr ""
 
-msgid "object %s not found"
-msgstr ""
-
 msgid "there is no package called"
 msgstr ""
 
@@ -40,15 +40,9 @@ msgid "unused argument"
 msgstr ""
 
 msgid ""
-"Language is not supported in Rdym at this time.  If you have localization "
-"support in R, please file an issue with Rdym at https://github.com/"
-"wrathematics/Rdym/issues"
-msgstr ""
-
-msgid ""
 "Internal Rdym error: no suitable list of replacement words found.  Please "
 "report this https://github.com/wrathematics/Rdym/issues"
 msgstr ""
 
-msgid "NOTE:  The Rdym package can only be used interactively."
+msgid "NOTE: The Rdym package can only be used interactively."
 msgstr ""
